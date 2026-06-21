@@ -232,6 +232,81 @@ body { background: radial-gradient(circle at 15% 0%, rgba(0,117,255,0.08), trans
 #backup-banner .backup-dismiss:hover { color: #fbbf24; }
 .autosave-dot.saving { background:var(--warning); animation:none; }
 /* ── CC UTILIZATION VIEW ── */
+.ins-toolbar { display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1.1rem; flex-wrap:wrap; }
+.ins-filter-tabs { display:flex; gap:8px; background:rgba(255,255,255,0.04); padding:5px; border-radius:12px; }
+.ins-tab { background:transparent; border:none; color:var(--text-muted); padding:7px 16px; border-radius:8px; font-size:0.82rem; font-weight:600; cursor:pointer; transition:0.15s; }
+.ins-tab:hover { color:var(--text-main); }
+.ins-tab.active { background:rgba(52,211,153,0.18); color:#34d399; }
+body.light-mode .ins-tab.active { background:#d1fae5; color:#047857; }
+.ins-summary-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:.8rem; margin-bottom:1.2rem; }
+.ins-summary-card { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:14px; padding:14px 16px; }
+body.light-mode .ins-summary-card { background:#fff; border-color:#e2e8f0; }
+.ins-summary-label { font-size:0.72rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.04em; margin-bottom:4px; }
+.ins-summary-val { font-size:1.25rem; font-weight:800; }
+.ins-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:1rem; }
+.ins-card { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:16px; padding:1.1rem 1.2rem; cursor:pointer; transition:0.18s; position:relative; }
+.ins-card:hover { border-color:rgba(52,211,153,0.4); transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,0,0,0.25); }
+body.light-mode .ins-card { background:#fff; border-color:#e2e8f0; }
+.ins-card-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px; }
+.ins-card-provider { font-weight:700; font-size:0.98rem; line-height:1.25; }
+.ins-card-type { font-size:0.76rem; color:var(--text-muted); margin-top:2px; }
+.ins-badge { font-size:0.68rem; font-weight:700; padding:3px 9px; border-radius:20px; text-transform:uppercase; letter-spacing:0.03em; white-space:nowrap; }
+.ins-badge.Personal { background:rgba(96,165,250,0.18); color:#60a5fa; }
+.ins-badge.Corporate { background:rgba(167,139,250,0.18); color:#a78bfa; }
+.ins-badge.status-Active { background:rgba(52,211,153,0.18); color:#34d399; }
+.ins-badge.status-Expired { background:rgba(239,68,68,0.18); color:#f87171; }
+.ins-badge.status-Lapsed { background:rgba(245,158,11,0.18); color:#f59e0b; }
+.ins-card-row { display:flex; justify-content:space-between; font-size:0.8rem; padding:5px 0; border-top:1px dashed rgba(255,255,255,0.07); }
+body.light-mode .ins-card-row { border-color:#e2e8f0; }
+.ins-card-row span:first-child { color:var(--text-muted); }
+.ins-card-row span:last-child { font-weight:600; }
+.ins-card-footer { display:flex; gap:6px; margin-top:10px; flex-wrap:wrap; }
+.ins-empty { text-align:center; padding:3rem 1rem; color:var(--text-muted); font-size:0.88rem; }
+
+.notes-wrap { display:flex; gap:1.2rem; height:100%; min-height:560px; }
+.notes-list-pane { width:300px; flex-shrink:0; display:flex; flex-direction:column; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); border-radius:16px; padding:14px; }
+body.light-mode .notes-list-pane { background:#fff; border-color:#e2e8f0; }
+.notes-list-header { display:flex; flex-direction:column; gap:10px; margin-bottom:12px; }
+.notes-search-box { display:flex; align-items:center; gap:8px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:8px 12px; font-size:0.82rem; color:var(--text-muted); }
+body.light-mode .notes-search-box { background:#f8fafc; border-color:#e2e8f0; }
+.notes-search-box input { flex:1; background:transparent; border:none; outline:none; color:var(--text-main); font-size:0.82rem; }
+.notes-list { flex:1; overflow-y:auto; display:flex; flex-direction:column; gap:8px; }
+.note-card { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:11px 13px; cursor:pointer; transition:0.15s; position:relative; overflow:hidden; }
+.note-card:hover { border-color:rgba(251,191,36,0.4); }
+.note-card.active { border-color:#fbbf24; background:rgba(251,191,36,0.08); }
+body.light-mode .note-card { background:#f8fafc; border-color:#e2e8f0; }
+.note-card-title { font-weight:700; font-size:0.88rem; margin-bottom:3px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.note-card-snippet { font-size:0.76rem; color:var(--text-muted); display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; line-height:1.35; }
+.note-card-date { font-size:0.68rem; color:var(--text-muted); margin-top:6px; opacity:0.7; }
+.note-card-locked { display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:18px 10px; min-height:74px; background:repeating-linear-gradient(45deg, rgba(148,163,184,0.18), rgba(148,163,184,0.18) 6px, rgba(148,163,184,0.06) 6px, rgba(148,163,184,0.06) 12px); filter:grayscale(1); }
+.note-card-locked:hover { filter:grayscale(0.4); }
+.note-card-locked .eye-circle { width:34px; height:34px; border-radius:50%; background:rgba(15,23,42,0.55); display:flex; align-items:center; justify-content:center; color:#e2e8f0; font-size:0.95rem; margin-bottom:6px; }
+body.light-mode .note-card-locked .eye-circle { background:rgba(255,255,255,0.85); color:#475569; }
+.note-card-locked-label { font-size:0.74rem; font-weight:700; color:#94a3b8; }
+.notes-editor-pane { flex:1; display:flex; flex-direction:column; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); border-radius:16px; padding:1.2rem 1.4rem; min-width:0; }
+body.light-mode .notes-editor-pane { background:#fff; border-color:#e2e8f0; }
+.notes-empty-state { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; color:var(--text-muted); font-size:0.88rem; }
+.notes-editor-body { display:flex; flex-direction:column; height:100%; min-height:0; }
+.notes-title-input { background:transparent; border:none; outline:none; font-size:1.3rem; font-weight:800; color:var(--text-main); margin-bottom:6px; }
+.notes-meta-row { display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; }
+.notes-meta-row #note-meta-updated { font-size:0.74rem; color:var(--text-muted); }
+.notes-meta-actions { display:flex; gap:6px; }
+.notes-icon-btn { width:30px; height:30px; border-radius:8px; border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.04); color:var(--text-muted); cursor:pointer; transition:0.15s; display:flex; align-items:center; justify-content:center; font-size:0.78rem; }
+.notes-icon-btn:hover { color:var(--text-main); border-color:rgba(251,191,36,0.4); }
+body.light-mode .notes-icon-btn { background:#f8fafc; border-color:#e2e8f0; }
+.notes-format-toolbar { display:flex; align-items:center; gap:4px; padding:6px 8px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:10px; margin-bottom:10px; flex-wrap:wrap; }
+body.light-mode .notes-format-toolbar { background:#f8fafc; border-color:#e2e8f0; }
+.notes-format-toolbar button { width:28px; height:28px; border:none; background:transparent; color:var(--text-muted); border-radius:6px; cursor:pointer; font-size:0.78rem; }
+.notes-format-toolbar button:hover { background:rgba(251,191,36,0.15); color:#fbbf24; }
+.notes-format-sep { width:1px; height:18px; background:rgba(255,255,255,0.1); margin:0 4px; }
+.notes-editor { flex:1; min-height:280px; outline:none; font-size:0.92rem; line-height:1.6; overflow-y:auto; color:var(--text-main); }
+.notes-editor:empty:before { content:attr(placeholder); color:var(--text-muted); opacity:0.6; }
+.notes-editor h2 { font-size:1.15rem; margin:0.6em 0 0.3em; }
+.notes-editor ul, .notes-editor ol { padding-left:1.4em; }
+.notes-save-row { display:flex; align-items:center; justify-content:space-between; margin-top:12px; padding-top:10px; border-top:1px dashed rgba(255,255,255,0.08); }
+body.light-mode .notes-save-row { border-color:#e2e8f0; }
+.notes-save-status { font-size:0.74rem; color:var(--text-muted); }
+
 .cc-view-wrap { display:flex; gap:1.4rem; height:100%; }
 .cc-setup-panel {
   width:300px; flex-shrink:0; display:flex; flex-direction:column; gap:1rem;
@@ -651,6 +726,8 @@ body.light-mode .inventory-pill span:last-child { color: #475569 !important; }
 .budget-modal .modal-subtitle { font-size:0.78rem; color:var(--text-muted); margin-bottom:1rem; }
 .budget-modal-list { display:flex; flex-direction:column; gap:10px; margin: 0.9rem 0 1.15rem; max-height: 52vh; overflow:auto; padding-right: 2px; scrollbar-width: none; -ms-overflow-style: none; }
 .budget-modal-list::-webkit-scrollbar { display: none; }
+#notifications-modal .modal-box { scrollbar-width: none; -ms-overflow-style: none; }
+#notifications-modal .modal-box::-webkit-scrollbar { display: none; }
 .budget-row { display:grid; grid-template-columns: 120px minmax(0, 1fr); align-items:center; gap:10px; }
 .budget-row label { font-size:0.78rem; color:var(--text-mid); min-width:0; }
 .budget-row .budget-input { margin-top:0; padding:9px 12px; font-size:0.84rem; border-radius:10px; }
@@ -1997,34 +2074,26 @@ body.light-mode .settings-undo-btn:hover { color: white; }
       <div id="forgot-email-step">
         <div class="back-link" onclick="showLoginPanel()"><i class="fas fa-arrow-left"></i> Back to Sign In</div>
         <div class="login-logo" style="font-size:1.2rem;margin-bottom:0.3rem">Reset Password</div>
-        <div class="login-sub" style="margin-bottom:1.4rem">Enter your email and we'll send a verification code</div>
+        <div class="login-sub" style="margin-bottom:1.4rem">Enter your email to answer your security question</div>
 
         <label class="login-label">Email Address</label>
         <input class="login-input" id="forgot-email-input" type="email" placeholder="you@gmail.com or you@outlook.com">
 
         <div class="login-error" id="forgot-error">❌ Please enter a valid email.</div>
-        <div class="success-msg" id="forgot-success">✅ A 6-digit code has been sent to your email.</div>
-        <button class="login-btn" onclick="sendVerificationCode()">Send Verification Code</button>
+        <button class="login-btn" onclick="sendVerificationCode()">Continue</button>
       </div>
 
-      <!-- ── STEP 3: Enter OTP ── -->
+      <!-- ── STEP 3: Answer Security Question ── -->
       <div id="forgot-otp-step" style="display:none;">
         <div class="back-link" onclick="document.getElementById('forgot-otp-step').style.display='none'; document.getElementById('forgot-email-step').style.display='block'"><i class="fas fa-arrow-left"></i> Back</div>
-        <div class="login-logo" style="font-size:1.2rem;margin-bottom:0.3rem">Enter Code</div>
-        <div class="login-sub" id="otp-hint" style="margin-bottom:1.4rem">We sent a code to your email</div>
+        <div class="login-logo" style="font-size:1.2rem;margin-bottom:0.3rem">Security Question</div>
+        <div class="login-sub" id="otp-hint" style="margin-bottom:1.4rem">Answer the question you set up for this account</div>
 
-        <div class="otp-inputs">
-          <input type="text" maxlength="1" class="otp-digit" oninput="otpNext(this,0)">
-          <input type="text" maxlength="1" class="otp-digit" oninput="otpNext(this,1)">
-          <input type="text" maxlength="1" class="otp-digit" oninput="otpNext(this,2)">
-          <input type="text" maxlength="1" class="otp-digit" oninput="otpNext(this,3)">
-          <input type="text" maxlength="1" class="otp-digit" oninput="otpNext(this,4)">
-          <input type="text" maxlength="1" class="otp-digit" oninput="otpNext(this,5)">
-        </div>
+        <label class="login-label" id="secq-question-label">Your Security Question</label>
+        <input class="login-input" id="secq-answer-input" type="text" placeholder="Your answer" autocomplete="off">
 
-        <div class="otp-resend">Didn't receive it? <span onclick="resendCode()">Resend code</span></div>
-        <div class="login-error" id="otp-error">❌ Incorrect code. Please try again.</div>
-        <button class="login-btn" onclick="verifyOTPCode()">Verify Code</button>
+        <div class="login-error" id="otp-error">❌ That answer doesn't match our records.</div>
+        <button class="login-btn" onclick="verifyOTPCode()">Verify Answer</button>
 
         <!-- ── STEP 4: Set New Password ── -->
         <div id="new-password-step" style="display:none; margin-top:1.2rem;">
@@ -2073,6 +2142,20 @@ body.light-mode .settings-undo-btn:hover { color: white; }
           <input class="login-input" id="signup-confirm" type="password" placeholder="••••••••" autocomplete="new-password">
           <button type="button" class="login-pass-toggle" onclick="toggleLoginPass('signup-confirm',this)" tabindex="-1"><i class="fas fa-eye"></i></button>
         </div>
+
+        <label class="login-label">Security Question <span style="color:var(--text-muted);font-weight:400">(used to reset your password without the old one)</span></label>
+        <select class="login-input" id="signup-secq" style="cursor:pointer">
+          <option value="">Select a security question…</option>
+          <option value="pet">What was the name of your first pet?</option>
+          <option value="city">In what city were you born?</option>
+          <option value="school">What was the name of your first school?</option>
+          <option value="mother">What is your mother's maiden name?</option>
+          <option value="nickname">What was your childhood nickname?</option>
+          <option value="car">What was the make of your first car?</option>
+        </select>
+
+        <label class="login-label">Security Answer</label>
+        <input class="login-input" id="signup-seca" type="text" placeholder="Your answer" autocomplete="off">
 
         <div class="login-error" id="signup-error">❌ Please fill in all fields.</div>
         <button class="login-btn" onclick="obNextFromAccount()">Continue →</button>
@@ -2244,6 +2327,29 @@ function saveUsers(users) {
   localStorage.setItem('fos_users', JSON.stringify(users));
 }
 
+// Normalizes (trim, lowercase, collapse whitespace) and lightly hashes a security answer
+// so it isn't stored as plain text, while still allowing forgiving case/spacing matches.
+function hashSecurityAnswer(answer) {
+  const norm = String(answer || '').trim().toLowerCase().replace(/\s+/g, ' ');
+  let hash = 0;
+  for (let i = 0; i < norm.length; i++) {
+    hash = ((hash << 5) - hash + norm.charCodeAt(i)) | 0;
+  }
+  return 'sa_' + Math.abs(hash).toString(36) + '_' + norm.length;
+}
+function checkSecurityAnswer(answer, storedHash) {
+  if (!storedHash) return false;
+  return hashSecurityAnswer(answer) === storedHash;
+}
+const SECURITY_QUESTIONS = {
+  pet: "What was the name of your first pet?",
+  city: "In what city were you born?",
+  school: "What was the name of your first school?",
+  mother: "What is your mother's maiden name?",
+  nickname: "What was your childhood nickname?",
+  car: "What was the make of your first car?"
+};
+
 // ── Login ───────────────────────────────────────────────────────────────────
 function handleLogin() {
   const identifier = document.getElementById('auth-identifier').value.trim().toLowerCase();
@@ -2297,6 +2403,8 @@ function obNextFromAccount() {
   const identifier = document.getElementById('signup-identifier').value.trim().toLowerCase();
   const password   = document.getElementById('signup-password').value;
   const confirm    = document.getElementById('signup-confirm').value;
+  const secQ       = document.getElementById('signup-secq').value;
+  const secA       = document.getElementById('signup-seca').value.trim();
   const errEl      = document.getElementById('signup-error');
 
   if (!name || !identifier || !password || !confirm) {
@@ -2305,6 +2413,10 @@ function obNextFromAccount() {
   }
   if (password !== confirm) {
     errEl.textContent = '❌ Passwords do not match.';
+    errEl.style.display = 'block'; return;
+  }
+  if (!secQ || !secA) {
+    errEl.textContent = '❌ Please select a security question and provide an answer.';
     errEl.style.display = 'block'; return;
   }
   const users = getUsers();
@@ -2373,8 +2485,14 @@ function obFinish() {
   const name       = document.getElementById('signup-name').value.trim();
   const identifier = document.getElementById('signup-identifier').value.trim().toLowerCase();
   const password   = document.getElementById('signup-password').value;
+  const secQ       = document.getElementById('signup-secq').value;
+  const secA       = document.getElementById('signup-seca').value.trim();
 
-  const user = { name, identifier, password, onboarding: obData };
+  const user = {
+    name, identifier, password, onboarding: obData,
+    securityQuestion: secQ || null,
+    securityAnswerHash: secA ? hashSecurityAnswer(secA) : null
+  };
   const users = getUsers();
   users.push(user);
   saveUsers(users);
@@ -2483,6 +2601,210 @@ function saveUserProfile(btn) {
   setTimeout(() => btn.innerHTML = origHtml, 2500);
 }
 
+// Show/hide the "please specify" field when reason = Other
+document.addEventListener('DOMContentLoaded', () => {
+  const reasonSel = document.getElementById('pwreset-reason');
+  if (reasonSel) {
+    reasonSel.addEventListener('change', () => {
+      const otherWrap = document.getElementById('pwreset-other-wrap');
+      if (otherWrap) otherWrap.style.display = reasonSel.value === 'other' ? 'block' : 'none';
+    });
+  }
+});
+
+// Toggles between "current password" verification and "security question" bypass
+let pwResetUsingSecQ = false;
+function togglePwResetMode() {
+  pwResetUsingSecQ = !pwResetUsingSecQ;
+  const currWrap = document.getElementById('pwreset-currpass-wrap');
+  const secqWrap = document.getElementById('pwreset-secq-wrap');
+  const link     = document.getElementById('pwreset-toggle-link');
+  const modeDesc = document.getElementById('pwreset-mode-desc');
+  const errEl    = document.getElementById('pwreset-error');
+  if (errEl) errEl.style.display = 'none';
+
+  if (pwResetUsingSecQ) {
+    const currUser = JSON.parse(localStorage.getItem('fos_current_user') || '{}');
+    const users = getUsers();
+    const user = users.find(u => u.identifier === currUser.identifier || u.email === currUser.identifier);
+
+    if (!user || !user.securityQuestion || !user.securityAnswerHash) {
+      if (errEl) {
+        errEl.textContent = '❌ No security question is set up on this account yet. Set one up below first, or use your current password.';
+        errEl.style.display = 'block';
+      }
+      pwResetUsingSecQ = false;
+      return;
+    }
+
+    document.getElementById('pwreset-secq-label').textContent = (SECURITY_QUESTIONS[user.securityQuestion] || 'Security Question').toUpperCase();
+    currWrap.style.display = 'none';
+    secqWrap.style.display = 'block';
+    link.textContent = 'Use my current password instead';
+    modeDesc.textContent = 'Answer your security question to set a new password';
+  } else {
+    currWrap.style.display = 'block';
+    secqWrap.style.display = 'none';
+    link.textContent = "I don't have my current password";
+    modeDesc.textContent = 'Enter your current password to set a new one';
+  }
+}
+
+// Reset the logged-in user's password from Settings — requires current password,
+// or a correct security-question answer as a bypass when the password isn't known.
+function resetPasswordFromSettings(btn) {
+  const reasonSel    = document.getElementById('pwreset-reason');
+  const otherText    = document.getElementById('pwreset-other-text');
+  const newPwEl      = document.getElementById('pwreset-new');
+  const confirmPwEl  = document.getElementById('pwreset-confirm');
+  const currPwEl     = document.getElementById('pwreset-current');
+  const secqAnswerEl = document.getElementById('pwreset-secq-answer');
+  const errEl        = document.getElementById('pwreset-error');
+
+  const reason     = reasonSel ? reasonSel.value : '';
+  const newPw      = newPwEl ? newPwEl.value : '';
+  const confirmPw  = confirmPwEl ? confirmPwEl.value : '';
+
+  errEl.style.display = 'none';
+
+  const currUser = JSON.parse(localStorage.getItem('fos_current_user') || '{}');
+  let users = JSON.parse(localStorage.getItem('fos_users') || '[]');
+  const userIdx = users.findIndex(u => u.identifier === currUser.identifier || u.email === currUser.identifier);
+
+  if (userIdx === -1) {
+    errEl.textContent = '❌ Could not find your account. Please sign in again.';
+    errEl.style.display = 'block'; return;
+  }
+
+  // ── Identity verification: current password OR security question ──
+  if (pwResetUsingSecQ) {
+    const answer = secqAnswerEl ? secqAnswerEl.value : '';
+    if (!answer || !checkSecurityAnswer(answer, users[userIdx].securityAnswerHash)) {
+      errEl.textContent = '❌ That answer doesn\'t match our records.';
+      errEl.style.display = 'block'; return;
+    }
+  } else {
+    const currPw = currPwEl ? currPwEl.value : '';
+    if (!currPw) {
+      errEl.textContent = '❌ Please enter your current password.';
+      errEl.style.display = 'block'; return;
+    }
+    if (users[userIdx].password !== currPw) {
+      errEl.textContent = '❌ Current password is incorrect.';
+      errEl.style.display = 'block'; return;
+    }
+  }
+
+  if (!reason) {
+    errEl.textContent = '❌ Please select a reason for the password change.';
+    errEl.style.display = 'block'; return;
+  }
+  if (reason === 'other' && (!otherText || !otherText.value.trim())) {
+    errEl.textContent = '❌ Please specify your reason.';
+    errEl.style.display = 'block'; return;
+  }
+  if (!newPw || !confirmPw) {
+    errEl.textContent = '❌ Please enter and confirm your new password.';
+    errEl.style.display = 'block'; return;
+  }
+  if (newPw.length < 6) {
+    errEl.textContent = '❌ Password must be at least 6 characters.';
+    errEl.style.display = 'block'; return;
+  }
+  if (newPw !== confirmPw) {
+    errEl.textContent = '❌ Passwords do not match.';
+    errEl.style.display = 'block'; return;
+  }
+
+  // Update password
+  users[userIdx].password = newPw;
+
+  // Log the reset reason for audit purposes (kept locally, not shown elsewhere)
+  if (!Array.isArray(users[userIdx].passwordResetLog)) users[userIdx].passwordResetLog = [];
+  users[userIdx].passwordResetLog.push({
+    reason: reason === 'other' ? (otherText.value.trim() || 'Other') : reason,
+    verifiedVia: pwResetUsingSecQ ? 'security-question' : 'current-password',
+    at: new Date().toISOString()
+  });
+
+  localStorage.setItem('fos_users', JSON.stringify(users));
+
+  // Clear the form
+  if (reasonSel) reasonSel.value = '';
+  if (otherText) otherText.value = '';
+  const otherWrap = document.getElementById('pwreset-other-wrap');
+  if (otherWrap) otherWrap.style.display = 'none';
+  newPwEl.value = '';
+  confirmPwEl.value = '';
+  if (currPwEl) currPwEl.value = '';
+  if (secqAnswerEl) secqAnswerEl.value = '';
+
+  // Reset back to default (current-password) mode for next time
+  if (pwResetUsingSecQ) togglePwResetMode();
+
+  if (typeof showSettingsToast === 'function') showSettingsToast('Password reset successfully');
+
+  const origHtml = btn.innerHTML;
+  btn.innerHTML = '<i class="fas fa-check-double"></i> Password Reset!';
+  setTimeout(() => btn.innerHTML = origHtml, 2500);
+}
+
+// Sets or updates the security question used to bypass password verification
+function saveSecurityQuestion(btn) {
+  const qSel  = document.getElementById('setsecq-question');
+  const aInp  = document.getElementById('setsecq-answer');
+  const errEl = document.getElementById('setsecq-error');
+
+  const q = qSel ? qSel.value : '';
+  const a = aInp ? aInp.value.trim() : '';
+
+  errEl.style.display = 'none';
+
+  if (!q || !a) {
+    errEl.textContent = '❌ Please select a question and provide an answer.';
+    errEl.style.display = 'block'; return;
+  }
+
+  const currUser = JSON.parse(localStorage.getItem('fos_current_user') || '{}');
+  let users = getUsers();
+  const userIdx = users.findIndex(u => u.identifier === currUser.identifier || u.email === currUser.identifier);
+
+  if (userIdx === -1) {
+    errEl.textContent = '❌ Could not find your account. Please sign in again.';
+    errEl.style.display = 'block'; return;
+  }
+
+  users[userIdx].securityQuestion = q;
+  users[userIdx].securityAnswerHash = hashSecurityAnswer(a);
+  saveUsers(users);
+
+  aInp.value = '';
+  qSel.value = '';
+  renderSecurityQuestionStatus();
+
+  if (typeof showSettingsToast === 'function') showSettingsToast('Security question saved');
+
+  const origHtml = btn.innerHTML;
+  btn.innerHTML = '<i class="fas fa-check-double"></i> Saved!';
+  setTimeout(() => btn.innerHTML = origHtml, 2500);
+}
+
+// Shows whether a security question is already configured for the logged-in user
+function renderSecurityQuestionStatus() {
+  const statusEl = document.getElementById('secq-current-status');
+  if (!statusEl) return;
+  const currUser = JSON.parse(localStorage.getItem('fos_current_user') || '{}');
+  const users = getUsers();
+  const user = users.find(u => u.identifier === currUser.identifier || u.email === currUser.identifier);
+
+  if (user && user.securityQuestion && user.securityAnswerHash) {
+    statusEl.innerHTML = '<i class="fas fa-check-circle" style="color:#34d399;margin-right:5px"></i>Currently set to: <b class="readable-white">' + (SECURITY_QUESTIONS[user.securityQuestion] || user.securityQuestion) + '</b>';
+  } else {
+    statusEl.innerHTML = '<i class="fas fa-triangle-exclamation" style="color:#fbbf24;margin-right:5px"></i>No security question set up yet — set one up so you can reset your password if you forget it.';
+  }
+}
+document.addEventListener('DOMContentLoaded', renderSecurityQuestionStatus);
+
 // Auto-login if session exists
 function checkSession() {
   const stored = localStorage.getItem('fos_current_user');
@@ -2501,7 +2823,6 @@ if (document.readyState === 'loading') {
 }
 
 // ── Forgot Password flow ─────────────────────────────────────────────────────
-let _otpCode      = '';
 let _resetEmail   = '';
 
 function showForgotPanel() {
@@ -2531,59 +2852,48 @@ function showSignupPanel() {
 function sendVerificationCode() {
   const email  = document.getElementById('forgot-email-input').value.trim().toLowerCase();
   const errEl  = document.getElementById('forgot-error');
-  const sucEl  = document.getElementById('forgot-success');
 
   if (!email) {
-    errEl.style.display = 'block'; sucEl.style.display = 'none'; return;
+    errEl.textContent = '❌ Please enter a valid email.';
+    errEl.style.display = 'block'; return;
+  }
+
+  const users = getUsers();
+  const user  = users.find(u => u.identifier === email || u.email === email);
+
+  if (!user) {
+    errEl.textContent = '❌ No account found for that email.';
+    errEl.style.display = 'block'; return;
+  }
+  if (!user.securityQuestion || !user.securityAnswerHash) {
+    errEl.textContent = '❌ This account has no security question set up. Please contact support or use your password directly.';
+    errEl.style.display = 'block'; return;
   }
 
   errEl.style.display = 'none';
   _resetEmail = email;
-  _otpCode    = Math.floor(100000 + Math.random() * 900000).toString();
 
-  // ── In a real app you'd POST to your backend here which emails the code ──
-  // For now we show it in an alert so you can test the flow locally:
-  alert('🔐 Your verification code is: ' + _otpCode + '\n\n(In production this would be emailed to ' + email + ')');
+  document.getElementById('secq-question-label').textContent = SECURITY_QUESTIONS[user.securityQuestion] || 'Your Security Question';
+  document.getElementById('otp-hint').textContent = 'Answer the question below to verify it\'s you';
 
-  document.getElementById('otp-hint').textContent = 'We sent a 6-digit code to ' + email;
-  sucEl.style.display = 'block';
-  errEl.style.display = 'none';
-
-  setTimeout(() => {
-    document.getElementById('forgot-email-step').style.display = 'none';
-    document.getElementById('forgot-otp-step').style.display   = 'block';
-    document.querySelectorAll('.otp-digit').forEach(i => i.value = '');
-    document.querySelector('.otp-digit').focus();
-  }, 900);
-}
-
-function otpNext(input, index) {
-  input.value = input.value.replace(/\D/g,'');
-  if (input.value.length === 1) {
-    const next = document.querySelectorAll('.otp-digit')[index + 1];
-    if (next) next.focus();
-  }
-}
-
-function getEnteredOTP() {
-  return Array.from(document.querySelectorAll('.otp-digit')).map(i => i.value).join('');
+  document.getElementById('forgot-email-step').style.display = 'none';
+  document.getElementById('forgot-otp-step').style.display   = 'block';
+  document.getElementById('secq-answer-input').value = '';
+  document.getElementById('secq-answer-input').focus();
 }
 
 function verifyOTPCode() {
-  const entered = getEnteredOTP();
+  const entered = document.getElementById('secq-answer-input').value;
   const errEl   = document.getElementById('otp-error');
-  if (entered !== _otpCode) {
+
+  const users = getUsers();
+  const user  = users.find(u => u.identifier === _resetEmail || u.email === _resetEmail);
+
+  if (!user || !checkSecurityAnswer(entered, user.securityAnswerHash)) {
     errEl.style.display = 'block'; return;
   }
   errEl.style.display = 'none';
   document.getElementById('new-password-step').style.display = 'block';
-}
-
-function resendCode() {
-  _otpCode = Math.floor(100000 + Math.random() * 900000).toString();
-  alert('🔐 New verification code: ' + _otpCode);
-  document.querySelectorAll('.otp-digit').forEach(i => i.value = '');
-  document.querySelector('.otp-digit').focus();
 }
 
 function saveNewPassword() {
@@ -2596,7 +2906,12 @@ function saveNewPassword() {
 
   let users = getUsers();
   let user  = users.find(u => u.identifier === _resetEmail || u.email === _resetEmail);
-  if (user) { user.password = np; saveUsers(users); }
+  if (user) {
+    user.password = np;
+    if (!Array.isArray(user.passwordResetLog)) user.passwordResetLog = [];
+    user.passwordResetLog.push({ reason: 'security-question-verified', at: new Date().toISOString() });
+    saveUsers(users);
+  }
 
   alert('✅ Password updated! Please sign in with your new password.');
   showLoginPanel();
@@ -2743,6 +3058,16 @@ function toggleLoginPass(inputId, btn) {
     </div>
     <span class="nav-label">Notifications</span>
     <span id="notif-count-badge" style="display:none" class="budget-badge over"></span>
+  </div>
+
+  <div class="nav-section-label">My Zone</div>
+  <div class="nav-item" id="fin-nav-insurance" onclick="switchView('insurance',this,'finance')">
+    <div class="nav-icon"><i class="fas fa-shield-alt" style="color:#34d399"></i></div>
+    <span class="nav-label">Insurance</span>
+  </div>
+  <div class="nav-item" id="fin-nav-notes" onclick="switchView('notes',this,'finance')">
+    <div class="nav-icon"><i class="fas fa-sticky-note" style="color:#fbbf24"></i></div>
+    <span class="nav-label">Notes</span>
   </div>
 
   <div class="sidebar-footer" style="margin-top:auto">
@@ -3380,6 +3705,27 @@ function toggleLoginPass(inputId, btn) {
             </select>
           </div>
         </div>
+        <div class="toggle-row">
+          <div class="toggle-label"><i class="fas fa-stairs" style="color:var(--accent);margin-right:6px"></i> Investment Step-up</div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="sc-stepup-enabled" onchange="toggleScenarioStepup()">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        <div class="modal-row" id="sc-stepup-row" style="display:none">
+          <div class="input-group">
+            <label>Step-up (%)</label>
+            <input type="number" id="sc-stepup-pct" class="input-field" value="10" min="0" oninput="calcScenario()">
+          </div>
+          <div class="input-group">
+            <label>Step-up Frequency</label>
+            <select id="sc-stepup-freq" class="input-field" onchange="calcScenario()">
+              <option value="monthly">Monthly</option>
+              <option value="quarterly">Quarterly</option>
+              <option value="yearly" selected>Yearly</option>
+            </select>
+          </div>
+        </div>
         <div class="calc-preview">
           <div class="calc-item"><div class="calc-item-label">Total Invested</div><div class="calc-item-val" id="sc-invested">₹0</div></div>
           <div class="calc-item"><div class="calc-item-label">Estimated Gains</div><div class="calc-item-val" id="sc-gains">₹0</div></div>
@@ -3590,7 +3936,7 @@ function toggleLoginPass(inputId, btn) {
         <div class="glass-panel" style="margin-bottom:0">
           <div class="panel-title">Debt vs Assets</div>
           <div class="empty-chart-msg" id="empty-debt" style="display:none">No data available</div>
-          <div style="height:230px"><canvas id="chart-debt"></canvas></div>
+          <div style="height:280px"><canvas id="chart-debt"></canvas></div>
         </div>
         <div class="glass-panel" style="margin-bottom:0">
           <div class="panel-title">Expense Composition</div>
@@ -4005,6 +4351,92 @@ function toggleLoginPass(inputId, btn) {
       </div>
     </div>
 
+    <div id="view-insurance" class="view-section">
+      <div class="ins-toolbar">
+        <div class="ins-filter-tabs">
+          <button class="ins-tab active" id="ins-tab-all" onclick="filterInsurance('all',this)">All Policies</button>
+          <button class="ins-tab" id="ins-tab-personal" onclick="filterInsurance('Personal',this)">Personal</button>
+          <button class="ins-tab" id="ins-tab-corporate" onclick="filterInsurance('Corporate',this)">Corporate</button>
+        </div>
+        <button class="btn-add" style="background:rgba(52,211,153,0.8)" onclick="openInsuranceModal()">
+          <i class="fas fa-plus"></i> Add Insurance
+        </button>
+      </div>
+
+      <div class="ins-summary-strip" id="ins-summary-strip"></div>
+
+      <div class="ins-grid" id="ins-grid"></div>
+
+      <div class="ins-empty" id="ins-empty" style="display:none">
+        <i class="fas fa-shield-alt" style="font-size:2.2rem;opacity:0.2;display:block;margin-bottom:10px"></i>
+        No insurance policies added yet. Click <b>Add Insurance</b> to get started.
+      </div>
+    </div>
+
+    <div id="view-notes" class="view-section">
+      <div class="notes-wrap">
+
+        <div class="notes-list-pane">
+          <div class="notes-list-header">
+            <button class="btn-add" style="width:100%;justify-content:center;background:rgba(251,191,36,0.85)" onclick="newNote()">
+              <i class="fas fa-plus"></i> New Note
+            </button>
+            <div class="notes-search-box">
+              <i class="fas fa-search"></i>
+              <input type="text" id="notes-search-input" placeholder="Search notes…" oninput="renderNotesList(this.value)">
+            </div>
+          </div>
+          <div class="notes-list" id="notes-list"></div>
+        </div>
+
+        <div class="notes-editor-pane">
+          <div class="notes-empty-state" id="notes-empty-state">
+            <i class="fas fa-sticky-note" style="font-size:2.2rem;opacity:0.2;display:block;margin-bottom:10px"></i>
+            Select a note or click <b>New Note</b> to get started.
+          </div>
+
+          <div class="notes-editor-body" id="notes-editor-body" style="display:none">
+            <input type="text" id="note-title-input" class="notes-title-input" placeholder="Note title…" oninput="markNoteDirty()">
+
+            <div class="notes-meta-row">
+              <span id="note-meta-updated"></span>
+              <div class="notes-meta-actions">
+                <button class="notes-icon-btn" id="note-changepass-btn" style="display:none" onclick="openNotePasswordModal(activeNoteId,'change')" title="Change password"><i class="fas fa-key"></i></button>
+                <button class="notes-icon-btn" id="note-removepass-btn" style="display:none" onclick="removeNoteProtection()" title="Remove protection"><i class="fas fa-unlock"></i></button>
+                <button class="notes-icon-btn" id="note-lock-btn" onclick="handleLockButtonClick()" title="Protect this note"><i class="fas fa-lock-open"></i></button>
+                <button class="notes-icon-btn" onclick="deleteActiveNote()" title="Delete note"><i class="fas fa-trash"></i></button>
+              </div>
+            </div>
+
+            <div class="notes-format-toolbar">
+              <button onclick="formatNote('bold')" title="Bold"><i class="fas fa-bold"></i></button>
+              <button onclick="formatNote('italic')" title="Italic"><i class="fas fa-italic"></i></button>
+              <button onclick="formatNote('underline')" title="Underline"><i class="fas fa-underline"></i></button>
+              <button onclick="formatNote('strikeThrough')" title="Strikethrough"><i class="fas fa-strikethrough"></i></button>
+              <span class="notes-format-sep"></span>
+              <button onclick="formatNoteBlock('h2')" title="Heading"><i class="fas fa-heading"></i></button>
+              <button onclick="formatNoteBlock('p')" title="Paragraph"><i class="fas fa-paragraph"></i></button>
+              <button onclick="formatNote('insertUnorderedList')" title="Bullet list"><i class="fas fa-list-ul"></i></button>
+              <button onclick="formatNote('insertOrderedList')" title="Numbered list"><i class="fas fa-list-ol"></i></button>
+              <span class="notes-format-sep"></span>
+              <button onclick="formatNote('justifyLeft')" title="Align left"><i class="fas fa-align-left"></i></button>
+              <button onclick="formatNote('justifyCenter')" title="Align center"><i class="fas fa-align-center"></i></button>
+              <span class="notes-format-sep"></span>
+              <button onclick="formatNote('removeFormat')" title="Clear formatting"><i class="fas fa-eraser"></i></button>
+            </div>
+
+            <div class="notes-editor" id="notes-editor" contenteditable="true" placeholder="Start typing…" oninput="markNoteDirty()"></div>
+
+            <div class="notes-save-row">
+              <span class="notes-save-status" id="notes-save-status">All changes saved</span>
+              <button class="btn-add" style="background:rgba(251,191,36,0.85)" onclick="saveActiveNote(true)">Save Note</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -4262,6 +4694,207 @@ function toggleLoginPass(inputId, btn) {
 </div>
 
 
+<!-- MODAL: Add / Edit Insurance -->
+<div class="modal-overlay" id="insurance-modal">
+  <div class="modal-box" style="width:600px;border-color:rgba(52,211,153,0.28);box-shadow:0 0 60px rgba(52,211,153,0.12)">
+    <div class="modal-title" style="color:#34d399" id="insurance-modal-title">Add Insurance Policy</div>
+
+    <div class="modal-row">
+      <div class="input-group">
+        <label>Category</label>
+        <select id="ins-category" class="input-field" onchange="toggleInsuranceCategory()">
+          <option value="Personal">Personal</option>
+          <option value="Corporate">Corporate</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label>Insurance Type</label>
+        <select id="ins-type" class="input-field">
+          <option>Health Insurance</option>
+          <option>Life Insurance</option>
+          <option>Term Life Insurance</option>
+          <option>Motor Insurance - Car</option>
+          <option>Motor Insurance - Two Wheeler</option>
+          <option>Home / Property Insurance</option>
+          <option>Travel Insurance</option>
+          <option>Personal Accident Insurance</option>
+          <option>Critical Illness Insurance</option>
+          <option>ULIP</option>
+          <option>Group Health Insurance (Corporate)</option>
+          <option>Group Life Insurance (Corporate)</option>
+          <option>Group Personal Accident (Corporate)</option>
+          <option>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="modal-row">
+      <div class="input-group" style="grid-column:1/-1">
+        <label>Insurance Provider</label>
+        <select id="ins-provider" class="input-field" onchange="toggleInsuranceOtherProvider()">
+          <optgroup label="Life Insurers">
+            <option>LIC of India</option>
+            <option>HDFC Life</option>
+            <option>ICICI Prudential Life</option>
+            <option>SBI Life</option>
+            <option>Max Life Insurance</option>
+            <option>Bajaj Allianz Life</option>
+            <option>Tata AIA Life</option>
+            <option>Kotak Mahindra Life</option>
+            <option>Aditya Birla Sun Life</option>
+            <option>PNB MetLife</option>
+            <option>Canara HSBC Life</option>
+            <option>Pramerica Life (Future Generali India Life)</option>
+            <option>Bharti AXA Life</option>
+            <option>Shriram Life</option>
+            <option>Star Union Dai-ichi Life</option>
+            <option>Edelweiss Tokio Life</option>
+          </optgroup>
+          <optgroup label="Health Insurers">
+            <option>Star Health Insurance</option>
+            <option>Niva Bupa Health (Max Bupa)</option>
+            <option>Care Health Insurance (Religare)</option>
+            <option>Manipal Cigna Health</option>
+            <option>Aditya Birla Health Insurance</option>
+            <option>HDFC ERGO Health</option>
+            <option>ICICI Lombard Health</option>
+          </optgroup>
+          <optgroup label="General Insurers">
+            <option>HDFC ERGO General</option>
+            <option>ICICI Lombard General</option>
+            <option>Bajaj Allianz General</option>
+            <option>Tata AIG General</option>
+            <option>New India Assurance</option>
+            <option>National Insurance Company</option>
+            <option>United India Insurance</option>
+            <option>Oriental Insurance Company</option>
+            <option>Reliance General Insurance</option>
+            <option>SBI General Insurance</option>
+            <option>Future Generali India Insurance</option>
+            <option>Cholamandalam MS General</option>
+            <option>Universal Sompo General</option>
+            <option>IFFCO Tokio General</option>
+            <option>Liberty General Insurance</option>
+            <option>Royal Sundaram General</option>
+            <option>Go Digit General Insurance</option>
+            <option>Acko General Insurance</option>
+            <option>Magma HDI General</option>
+            <option>Shriram General Insurance</option>
+            <option>Kotak Mahindra General</option>
+            <option>Edelweiss General Insurance</option>
+          </optgroup>
+          <option value="__other__">Other (type manually)</option>
+        </select>
+        <input type="text" id="ins-provider-other" class="input-field" placeholder="Enter provider name" style="display:none;margin-top:8px">
+      </div>
+    </div>
+
+    <div class="modal-row">
+      <div class="input-group">
+        <label>Policy Number</label>
+        <input type="text" id="ins-policy-number" class="input-field" placeholder="e.g. POL123456789">
+      </div>
+      <div class="input-group">
+        <label>Policy Holder Name</label>
+        <input type="text" id="ins-holder" class="input-field" placeholder="Name on the policy">
+      </div>
+    </div>
+
+    <div class="modal-row" id="ins-employer-row">
+      <div class="input-group" style="grid-column:1/-1">
+        <label>Employer / Company Name</label>
+        <input type="text" id="ins-employer" class="input-field" placeholder="e.g. Provided by your employer">
+      </div>
+    </div>
+
+    <div class="modal-row">
+      <div class="input-group">
+        <label>Sum Insured / Cover Amount (₹)</label>
+        <input type="number" id="ins-sum-insured" class="input-field" placeholder="0">
+      </div>
+      <div class="input-group">
+        <label>Premium Amount (₹)</label>
+        <input type="number" id="ins-premium" class="input-field" placeholder="0">
+      </div>
+    </div>
+
+    <div class="modal-row">
+      <div class="input-group">
+        <label>Premium Frequency</label>
+        <select id="ins-frequency" class="input-field">
+          <option>Yearly</option>
+          <option>Half-Yearly</option>
+          <option>Quarterly</option>
+          <option>Monthly</option>
+          <option>One-Time</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label>Status</label>
+        <select id="ins-status" class="input-field">
+          <option>Active</option>
+          <option>Expired</option>
+          <option>Lapsed</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="modal-row">
+      <div class="input-group">
+        <label>Start Date</label>
+        <input type="date" id="ins-start-date" class="input-field">
+      </div>
+      <div class="input-group">
+        <label>Renewal / Expiry Date</label>
+        <input type="date" id="ins-end-date" class="input-field">
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label>Nominee Name</label>
+      <input type="text" id="ins-nominee" class="input-field" placeholder="e.g. Spouse, Parent name">
+    </div>
+
+    <div class="input-group">
+      <label>Notes</label>
+      <input type="text" id="ins-notes" class="input-field" placeholder="Any additional details">
+    </div>
+
+    <input type="hidden" id="ins-edit-id" value="">
+
+    <div style="display:flex;gap:8px;margin-top:1.3rem">
+      <button onclick="saveInsuranceEntry()" class="btn-add" style="flex:1;justify-content:center;background:rgba(52,211,153,0.8)" id="insurance-save-btn">Save Policy</button>
+      <button onclick="closeInsuranceModal()" class="btn-secondary">Cancel</button>
+      <button onclick="deleteCurrentInsuranceEntry()" class="btn-delete" style="display:none" id="insurance-delete-btn"><i class="fas fa-trash"></i> Delete</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- MODAL: Note Password (Protect / Unlock / Change) -->
+<div class="modal-overlay" id="note-password-modal">
+  <div class="modal-box" style="width:380px;border-color:rgba(251,191,36,0.28);box-shadow:0 0 60px rgba(251,191,36,0.12)">
+    <div class="modal-title" style="color:#fbbf24" id="note-password-modal-title">Enter Password</div>
+    <div class="modal-subtitle" id="note-password-modal-subtitle" style="font-size:0.78rem;color:var(--text-muted);margin-bottom:1rem">This note is protected.</div>
+
+    <div class="input-group">
+      <label id="note-pass-label-1">Password</label>
+      <input type="password" id="note-pass-input-1" class="input-field" placeholder="Enter password" onkeydown="if(event.key==='Enter')submitNotePasswordAction()">
+    </div>
+    <div class="input-group" id="note-pass-group-2" style="display:none">
+      <label id="note-pass-label-2">Confirm Password</label>
+      <input type="password" id="note-pass-input-2" class="input-field" placeholder="Confirm password" onkeydown="if(event.key==='Enter')submitNotePasswordAction()">
+    </div>
+    <div id="note-pass-error" style="display:none;color:#f87171;font-size:0.78rem;margin-top:4px">❌ Incorrect password.</div>
+
+    <div style="display:flex;gap:8px;margin-top:1.2rem">
+      <button onclick="submitNotePasswordAction()" class="btn-add" style="flex:1;justify-content:center;background:rgba(251,191,36,0.85)" id="note-pass-submit-btn">Unlock</button>
+      <button onclick="closeNotePasswordModal()" class="btn-secondary">Cancel</button>
+    </div>
+  </div>
+</div>
+
+
 <!-- MODAL: Settings & Preferences -->
 <div class="modal-overlay" id="settings-modal">
   <div class="modal-box settings-modal-box">
@@ -4377,6 +5010,103 @@ function toggleLoginPass(inputId, btn) {
                 </div>
               </div>
               <button class="btn-add" onclick="saveUserProfile(this)" style="border-radius: 8px; padding: 6px 14px; transition: 0.3s;"><i class="fas fa-check"></i> Save Profile</button>
+            </div>
+          </div>
+
+          <div class="set-card" style="padding: 1rem;">
+            <div style="display:flex; gap:10px; align-items:center; margin-bottom: 0.8rem;">
+              <div style="width:28px; height:28px; border-radius:50%; background:rgba(239,68,68,0.15); color:#ef4444; display:flex; align-items:center; justify-content:center"><i class="fas fa-key"></i></div>
+              <div class="set-label-block">
+                <div class="set-lbl readable-white">Reset Password</div>
+                <div class="set-desc" style="margin-top:0" id="pwreset-mode-desc">Enter your current password to set a new one</div>
+              </div>
+            </div>
+
+            <!-- Mode A: Current password required (default) -->
+            <div id="pwreset-currpass-wrap" style="margin-bottom: 0.6rem;">
+              <div class="set-desc readable-white" style="text-transform:uppercase; letter-spacing:1px; margin-bottom:2px; font-weight:600; font-size:0.6rem;">CURRENT PASSWORD</div>
+              <input type="password" id="pwreset-current" class="set-input" style="width:100%; padding: 5px 10px;" placeholder="Enter your current password" autocomplete="current-password">
+            </div>
+
+            <!-- Mode B: Security question bypass -->
+            <div id="pwreset-secq-wrap" style="display:none; margin-bottom: 0.6rem;">
+              <div class="set-desc readable-white" style="text-transform:uppercase; letter-spacing:1px; margin-bottom:2px; font-weight:600; font-size:0.6rem;" id="pwreset-secq-label">SECURITY QUESTION</div>
+              <input type="text" id="pwreset-secq-answer" class="set-input" style="width:100%; padding: 5px 10px;" placeholder="Your answer" autocomplete="off">
+            </div>
+
+            <div style="margin-bottom:0.8rem;">
+              <span id="pwreset-toggle-link" onclick="togglePwResetMode()" style="font-size:0.72rem; color:var(--accent); cursor:pointer; text-decoration:underline;">I don't have my current password</span>
+            </div>
+
+            <div style="margin-bottom: 0.6rem;">
+              <div class="set-desc readable-white" style="text-transform:uppercase; letter-spacing:1px; margin-bottom:2px; font-weight:600; font-size:0.6rem;">REASON FOR RESET</div>
+              <select id="pwreset-reason" class="set-input" style="width:100%; padding: 5px 10px; cursor:pointer;">
+                <option value="">Select a reason…</option>
+                <option value="forgot">I forgot my password</option>
+                <option value="routine">Routine security update</option>
+                <option value="suspicious">I suspect unauthorized access</option>
+                <option value="shared">I shared my password with someone</option>
+                <option value="device">I'm using a new device</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div id="pwreset-other-wrap" style="display:none; margin-bottom: 0.6rem;">
+              <div class="set-desc readable-white" style="text-transform:uppercase; letter-spacing:1px; margin-bottom:2px; font-weight:600; font-size:0.6rem;">PLEASE SPECIFY</div>
+              <input type="text" id="pwreset-other-text" class="set-input" style="width:100%; padding: 5px 10px;" placeholder="Tell us a bit more...">
+            </div>
+
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 0.4rem;">
+              <div>
+                <div class="set-desc readable-white" style="text-transform:uppercase; letter-spacing:1px; margin-bottom:2px; font-weight:600; font-size:0.6rem;">NEW PASSWORD</div>
+                <input type="password" id="pwreset-new" class="set-input" style="width:100%; padding: 5px 10px;" placeholder="Enter new password" autocomplete="new-password">
+              </div>
+              <div>
+                <div class="set-desc readable-white" style="text-transform:uppercase; letter-spacing:1px; margin-bottom:2px; font-weight:600; font-size:0.6rem;">CONFIRM NEW PASSWORD</div>
+                <input type="password" id="pwreset-confirm" class="set-input" style="width:100%; padding: 5px 10px;" placeholder="Re-enter new password" autocomplete="new-password">
+              </div>
+            </div>
+
+            <div id="pwreset-error" style="display:none; color:#ef4444; font-size:0.72rem; margin-bottom:0.5rem;"></div>
+
+            <div style="display:flex; justify-content:flex-end;">
+              <button class="btn-add" onclick="resetPasswordFromSettings(this)" style="border-radius: 8px; padding: 6px 14px; background:linear-gradient(135deg, #ef4444 0%, #b91c1c 100%); box-shadow:0 4px 16px rgba(239,68,68,0.35), inset 0 1px 0 rgba(255,255,255,0.2);"><i class="fas fa-key"></i> Reset Password</button>
+            </div>
+          </div>
+
+          <div class="set-card" style="padding: 1rem;">
+            <div style="display:flex; gap:10px; align-items:center; margin-bottom: 0.8rem;">
+              <div style="width:28px; height:28px; border-radius:50%; background:rgba(167,139,250,0.15); color:#a78bfa; display:flex; align-items:center; justify-content:center"><i class="fas fa-shield-halved"></i></div>
+              <div class="set-label-block">
+                <div class="set-lbl readable-white">Security Question</div>
+                <div class="set-desc" style="margin-top:0">Used to verify it's you if you ever lose your password</div>
+              </div>
+            </div>
+
+            <div id="secq-current-status" style="font-size:0.75rem; color:var(--text-muted); margin-bottom:0.6rem;"></div>
+
+            <div style="margin-bottom: 0.6rem;">
+              <div class="set-desc readable-white" style="text-transform:uppercase; letter-spacing:1px; margin-bottom:2px; font-weight:600; font-size:0.6rem;">QUESTION</div>
+              <select id="setsecq-question" class="set-input" style="width:100%; padding: 5px 10px; cursor:pointer;">
+                <option value="">Select a security question…</option>
+                <option value="pet">What was the name of your first pet?</option>
+                <option value="city">In what city were you born?</option>
+                <option value="school">What was the name of your first school?</option>
+                <option value="mother">What is your mother's maiden name?</option>
+                <option value="nickname">What was your childhood nickname?</option>
+                <option value="car">What was the make of your first car?</option>
+              </select>
+            </div>
+
+            <div style="margin-bottom: 0.6rem;">
+              <div class="set-desc readable-white" style="text-transform:uppercase; letter-spacing:1px; margin-bottom:2px; font-weight:600; font-size:0.6rem;">ANSWER</div>
+              <input type="text" id="setsecq-answer" class="set-input" style="width:100%; padding: 5px 10px;" placeholder="Your answer" autocomplete="off">
+            </div>
+
+            <div id="setsecq-error" style="display:none; color:#ef4444; font-size:0.72rem; margin-bottom:0.5rem;"></div>
+
+            <div style="display:flex; justify-content:flex-end;">
+              <button class="btn-add" onclick="saveSecurityQuestion(this)" style="border-radius: 8px; padding: 6px 14px;"><i class="fas fa-check"></i> Save Security Question</button>
             </div>
           </div>
         </div>
@@ -5091,6 +5821,10 @@ let creditDb = JSON.parse(localStorage.getItem('fos_credit_v1')) || [
   {id:211, lenderName:"Poneeri Real Estate 2", type:"Assets",  principalAmount:258750, outstandingBalance:172750, interestRate:0, monthlyEmi:5000.00, dueDate:"1st",  tenureMonths:41, balanceTenure:0,  startDate:"2024-08-01", endDate:"2028-08-01", status:"Active", remarks:"Investment"},
 ];
 
+let insuranceDb = JSON.parse(localStorage.getItem('fos_insurance_v1')) || [];
+
+let notesDb = JSON.parse(localStorage.getItem('fos_notes_v1')) || [];
+
 let budgets = JSON.parse(localStorage.getItem('fos_budgets')) || {};
 
 // ── DATA STORAGE ────────────────────────────────────────────────────────────
@@ -5205,6 +5939,8 @@ async function doAutoSave() {
   localStorage.setItem('fos_db_v3',     JSON.stringify(db));
   localStorage.setItem('fos_port_v3',   JSON.stringify(portDb));
   localStorage.setItem('fos_credit_v1', JSON.stringify(creditDb));
+  localStorage.setItem('fos_insurance_v1', JSON.stringify(insuranceDb));
+  localStorage.setItem('fos_notes_v1', JSON.stringify(notesDb));
   localStorage.setItem('fos_budgets',   JSON.stringify(budgets));
   localStorage.setItem('financeOS_ccCards', JSON.stringify(ccCards));
   localStorage.setItem('fos_notifications', JSON.stringify(notifications));
@@ -5219,6 +5955,8 @@ async function doAutoSave() {
         db: db,
         portDb: portDb,
         creditDb: creditDb,
+        insuranceDb: insuranceDb,
+        notesDb: notesDb,
         budgets: budgets,
         ccCards: ccCards,
         notifications: notifications,
@@ -5235,7 +5973,12 @@ async function doAutoSave() {
         customTags: JSON.parse(localStorage.getItem('fos_custom_tags') || '[]'),
         roughBoard: JSON.parse(localStorage.getItem('financeOS_roughboard_v1') || 'null'),
         users: JSON.parse(localStorage.getItem('fos_users') || '[]'),
-        currentUser: JSON.parse(localStorage.getItem('fos_current_user') || 'null')
+        currentUser: JSON.parse(localStorage.getItem('fos_current_user') || 'null'),
+        settingsToggles: getAllSettingsToggles(),
+        onboardingGoal: localStorage.getItem('fos_onboarding_goal') || '',
+        lastActiveView: JSON.parse(localStorage.getItem('fos_last_active_view') || 'null'),
+        lastNetWorthMilestone: localStorage.getItem('fos_last_nw_milestone') || '',
+        lastPortfolioUpdate: localStorage.getItem('fos_last_portfolio_update') || ''
       };
       
       const writable = await localFileHandle.createWritable();
@@ -5487,6 +6230,8 @@ function switchView(viewName, btn, group) {
     'roughboard':     '<span>Playbook</span> <b>Rough Board</b>',
     'calculator':     '<span>Playbook</span> <b>Calculator</b>',
           'ccutil':         '<span>Credit Card</span> <b>Utilization</b>',
+    'insurance':      '<span>My Zone</span> <b>Insurance</b>',
+    'notes':          '<span>My Zone</span> <b>Notes</b>',
   };
 
   document.getElementById('page-header').innerHTML = headerMap[viewName] || '';
@@ -5506,6 +6251,8 @@ function switchView(viewName, btn, group) {
     'port-analytics': 'view-port-analytics',
     'roughboard':     'view-roughboard',
     'calculator':     'view-calculator',
+    'insurance':      'view-insurance',
+    'notes':          'view-notes',
   };
 
   const domId = viewIdMap[viewName];
@@ -5527,6 +6274,8 @@ function switchView(viewName, btn, group) {
   else if (viewName === 'ccutil') { setTimeout(initCCView, 50); }
   else if (viewName === 'roughboard') { setTimeout(initRoughBoard, 100); }
   else if (viewName === 'calculator') { setTimeout(initCalculator, 100); }
+  else if (viewName === 'insurance') { renderInsurance(); }
+  else if (viewName === 'notes') { renderNotesList(); }
 }
 
 // ── DASHBOARD ──────────────────────────────────────────────────────────────
@@ -8947,7 +9696,7 @@ const statusText = assetsVal > debtVal*2 ? "Strong Position" : assetsVal > debtV
   const statusColor = assetsVal > debtVal*2 ? '#34d399' : assetsVal > debtVal ? '#fbbf24' : '#ef4444';
 
   const scaleHtml = `
-    <div id="scale-container" style="width: 100%; flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 10px 0 5px 0; min-height: 260px; cursor: crosshair;" title="Ratio: ${(assetsVal / (debtVal||1)).toFixed(2)}x Assets to Debt">
+    <div id="scale-container" style="width: 100%; flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 10px 0 5px 0; min-height: 310px; cursor: crosshair;" title="Ratio: ${(assetsVal / (debtVal||1)).toFixed(2)}x Assets to Debt">
       
       <div style="width: 100%; display: flex; justify-content: space-between; padding: 0 10px; position: relative; z-index: 20;">
         <div style="text-align: left;">
@@ -8960,7 +9709,7 @@ const statusText = assetsVal > debtVal*2 ? "Strong Position" : assetsVal > debtV
         </div>
       </div>
 
-      <div style="width: 240px; height: 130px; position: relative; margin: 25px 0 5px 0; transform: scale(1.22); transform-origin: center bottom;">
+      <div style="width: 240px; height: 130px; position: relative; margin: 18px 0 5px 0; transform: scale(1.55); transform-origin: center bottom;">
         <div style="width: 100px; height: 16px; background: var(--scale-base-bg); border-radius: 50% 50% 10px 10px; border-top: 1px solid var(--scale-border-top); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); box-shadow: var(--scale-shadow-base); z-index: 4; transition:all 0.2s;"></div>
         
         <div style="width: 20px; height: 100px; background: var(--scale-pillar-bg); border-radius: 10px 10px 0 0; border-left: 1px solid var(--scale-border-side); border-right: 1px solid rgba(0,0,0,0.1); position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); z-index: 5; box-shadow: var(--scale-shadow-pillar); transition:all 0.2s;"></div>
@@ -11164,6 +11913,475 @@ function deleteCreditItem(id) {
   }
 }
 
+// ── INSURANCE (MY ZONE) ──────────────────────────────────────────────────
+let editingInsuranceId = null;
+let insuranceFilter = 'all';
+
+function toggleInsuranceCategory() {
+  const cat = document.getElementById('ins-category').value;
+  document.getElementById('ins-employer-row').style.display = (cat === 'Corporate') ? 'flex' : 'none';
+}
+
+function toggleInsuranceOtherProvider() {
+  const isOther = document.getElementById('ins-provider').value === '__other__';
+  document.getElementById('ins-provider-other').style.display = isOther ? 'block' : 'none';
+}
+
+function openInsuranceModal() {
+  editingInsuranceId = null;
+  document.getElementById('insurance-modal-title').textContent = 'Add Insurance Policy';
+  document.getElementById('insurance-save-btn').textContent = 'Save Policy';
+  document.getElementById('insurance-delete-btn').style.display = 'none';
+  ['ins-policy-number','ins-holder','ins-employer','ins-sum-insured','ins-premium','ins-nominee','ins-notes','ins-provider-other'].forEach(id => {
+    const el = document.getElementById(id); if (el) el.value = '';
+  });
+  document.getElementById('ins-category').value = 'Personal';
+  document.getElementById('ins-type').value = 'Health Insurance';
+  document.getElementById('ins-provider').value = 'LIC of India';
+  document.getElementById('ins-frequency').value = 'Yearly';
+  document.getElementById('ins-status').value = 'Active';
+  document.getElementById('ins-start-date').value = new Date().toISOString().split('T')[0];
+  document.getElementById('ins-end-date').value = '';
+  document.getElementById('ins-edit-id').value = '';
+  toggleInsuranceCategory();
+  toggleInsuranceOtherProvider();
+  document.getElementById('insurance-modal').style.display = 'flex';
+}
+
+function closeInsuranceModal() { document.getElementById('insurance-modal').style.display = 'none'; }
+
+function editInsuranceEntry(id) {
+  const p = insuranceDb.find(x => x.id === id);
+  if (!p) return;
+  editingInsuranceId = id;
+  document.getElementById('insurance-modal-title').textContent = 'Edit Insurance Policy';
+  document.getElementById('insurance-save-btn').textContent = 'Update Policy';
+  document.getElementById('insurance-delete-btn').style.display = 'block';
+  document.getElementById('ins-category').value      = p.category;
+  document.getElementById('ins-type').value          = p.insType;
+
+  const providerSelect = document.getElementById('ins-provider');
+  const knownProvider = Array.from(providerSelect.options).some(o => o.value === p.provider);
+  providerSelect.value = knownProvider ? p.provider : '__other__';
+  document.getElementById('ins-provider-other').value = knownProvider ? '' : p.provider;
+
+  document.getElementById('ins-policy-number').value = p.policyNumber || '';
+  document.getElementById('ins-holder').value         = p.holderName || '';
+  document.getElementById('ins-employer').value       = p.employer || '';
+  document.getElementById('ins-sum-insured').value    = p.sumInsured || '';
+  document.getElementById('ins-premium').value        = p.premium || '';
+  document.getElementById('ins-frequency').value      = p.frequency || 'Yearly';
+  document.getElementById('ins-status').value         = p.status || 'Active';
+  document.getElementById('ins-start-date').value     = p.startDate || '';
+  document.getElementById('ins-end-date').value       = p.endDate || '';
+  document.getElementById('ins-nominee').value        = p.nominee || '';
+  document.getElementById('ins-notes').value          = p.notes || '';
+
+  toggleInsuranceCategory();
+  toggleInsuranceOtherProvider();
+  document.getElementById('insurance-modal').style.display = 'flex';
+}
+
+function saveInsuranceEntry() {
+  const category     = document.getElementById('ins-category').value;
+  const insType       = document.getElementById('ins-type').value;
+  const providerSel    = document.getElementById('ins-provider').value;
+  const provider       = providerSel === '__other__' ? document.getElementById('ins-provider-other').value.trim() : providerSel;
+  const policyNumber   = document.getElementById('ins-policy-number').value.trim();
+  const holderName     = document.getElementById('ins-holder').value.trim();
+  const employer       = document.getElementById('ins-employer').value.trim();
+  const sumInsured     = Number(document.getElementById('ins-sum-insured').value) || 0;
+  const premium        = Number(document.getElementById('ins-premium').value) || 0;
+  const frequency      = document.getElementById('ins-frequency').value;
+  const status         = document.getElementById('ins-status').value;
+  const startDate       = document.getElementById('ins-start-date').value;
+  const endDate         = document.getElementById('ins-end-date').value;
+  const nominee         = document.getElementById('ins-nominee').value.trim();
+  const notes           = document.getElementById('ins-notes').value.trim();
+
+  if (!provider) { alert('Please select or enter an Insurance Provider'); return; }
+  if (!policyNumber) { alert('Please enter the Policy Number'); return; }
+  if (!holderName) { alert('Please enter the Policy Holder Name'); return; }
+
+  const entry = { category, insType, provider, policyNumber, holderName, employer, sumInsured, premium, frequency, status, startDate, endDate, nominee, notes };
+
+  if (editingInsuranceId) {
+    const idx = insuranceDb.findIndex(x => x.id === editingInsuranceId);
+    if (idx >= 0) insuranceDb[idx] = { ...insuranceDb[idx], ...entry };
+  } else {
+    insuranceDb.push({ id: Date.now(), ...entry });
+  }
+  scheduleSave();
+  closeInsuranceModal();
+  renderInsurance();
+}
+
+function deleteCurrentInsuranceEntry() {
+  if (editingInsuranceId && confirm('Delete this insurance policy?')) {
+    insuranceDb = insuranceDb.filter(x => x.id !== editingInsuranceId);
+    scheduleSave();
+    closeInsuranceModal();
+    renderInsurance();
+  }
+}
+
+function filterInsurance(cat, btn) {
+  insuranceFilter = cat;
+  document.querySelectorAll('.ins-tab').forEach(t => t.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  renderInsurance();
+}
+
+function fmtInsCurrency(n) {
+  return '₹' + Number(n || 0).toLocaleString('en-IN');
+}
+
+function renderInsurance() {
+  const grid = document.getElementById('ins-grid');
+  const empty = document.getElementById('ins-empty');
+  const summary = document.getElementById('ins-summary-strip');
+  if (!grid) return;
+
+  const list = insuranceFilter === 'all' ? insuranceDb : insuranceDb.filter(p => p.category === insuranceFilter);
+
+  // Summary strip (always based on full set, not filtered, except active count uses filtered)
+  const totalPolicies   = insuranceDb.length;
+  const totalCover      = insuranceDb.reduce((s,p) => s + Number(p.sumInsured||0), 0);
+  const totalPremium    = insuranceDb.reduce((s,p) => s + Number(p.premium||0), 0);
+  const expiringSoon    = insuranceDb.filter(p => {
+    if (!p.endDate) return false;
+    const days = (new Date(p.endDate) - new Date()) / 86400000;
+    return days >= 0 && days <= 45;
+  }).length;
+
+  summary.innerHTML = `
+    <div class="ins-summary-card">
+      <div class="ins-summary-label">Total Policies</div>
+      <div class="ins-summary-val" style="color:#34d399">${totalPolicies}</div>
+    </div>
+    <div class="ins-summary-card">
+      <div class="ins-summary-label">Total Cover</div>
+      <div class="ins-summary-val">${fmtInsCurrency(totalCover)}</div>
+    </div>
+    <div class="ins-summary-card">
+      <div class="ins-summary-label">Total Annual Premium</div>
+      <div class="ins-summary-val" style="color:#f59e0b">${fmtInsCurrency(totalPremium)}</div>
+    </div>
+    <div class="ins-summary-card">
+      <div class="ins-summary-label">Renewing Soon (45d)</div>
+      <div class="ins-summary-val" style="color:${expiringSoon ? '#f87171' : 'inherit'}">${expiringSoon}</div>
+    </div>`;
+
+  if (!list.length) {
+    grid.innerHTML = '';
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+
+  grid.innerHTML = list.map(p => `
+    <div class="ins-card" onclick="editInsuranceEntry(${p.id})">
+      <div class="ins-card-top">
+        <div>
+          <div class="ins-card-provider">${p.provider}</div>
+          <div class="ins-card-type">${p.insType}</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:5px;align-items:flex-end">
+          <span class="ins-badge ${p.category}">${p.category}</span>
+          <span class="ins-badge status-${p.status}">${p.status}</span>
+        </div>
+      </div>
+      <div class="ins-card-row"><span>Policy No.</span><span>${p.policyNumber}</span></div>
+      <div class="ins-card-row"><span>Holder</span><span>${p.holderName}</span></div>
+      ${p.employer ? `<div class="ins-card-row"><span>Employer</span><span>${p.employer}</span></div>` : ''}
+      <div class="ins-card-row"><span>Sum Insured</span><span>${fmtInsCurrency(p.sumInsured)}</span></div>
+      <div class="ins-card-row"><span>Premium</span><span>${fmtInsCurrency(p.premium)} / ${p.frequency}</span></div>
+      <div class="ins-card-row"><span>Renewal Date</span><span>${p.endDate || '—'}</span></div>
+      ${p.nominee ? `<div class="ins-card-row"><span>Nominee</span><span>${p.nominee}</span></div>` : ''}
+      <div class="ins-card-footer">
+        <button class="btn-secondary" style="padding:5px 12px;font-size:0.75rem" onclick="event.stopPropagation();editInsuranceEntry(${p.id})"><i class="fas fa-edit"></i> Edit</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ── NOTES (MY ZONE) ──────────────────────────────────────────────────────
+let activeNoteId = null;
+let unlockedNoteIds = new Set();
+let notePasswordMode = null;   // 'unlock' | 'set' | 'change'
+let notePasswordTargetId = null;
+let noteSaveTimer = null;
+
+function stripHtml(html) {
+  const tmp = document.createElement('div');
+  tmp.innerHTML = html || '';
+  return (tmp.textContent || tmp.innerText || '').trim();
+}
+
+function fmtNoteDate(iso) {
+  if (!iso) return '';
+  const d = new Date(iso);
+  return d.toLocaleDateString('en-IN', { day:'numeric', month:'short', year:'numeric' }) + ' · ' +
+         d.toLocaleTimeString('en-IN', { hour:'2-digit', minute:'2-digit' });
+}
+
+function renderNotesList(query) {
+  const listEl = document.getElementById('notes-list');
+  if (!listEl) return;
+  query = (query || '').toLowerCase();
+
+  let list = [...notesDb].sort((a,b) => new Date(b.updatedAt) - new Date(a.updatedAt));
+  if (query) {
+    list = list.filter(n => {
+      if (n.locked) return n.title.toLowerCase().includes(query); // don't search inside locked content
+      return n.title.toLowerCase().includes(query) || stripHtml(n.content).toLowerCase().includes(query);
+    });
+  }
+
+  if (!list.length) {
+    listEl.innerHTML = `<div style="text-align:center;padding:2rem 0.5rem;color:var(--text-muted);font-size:0.8rem">
+      <i class="fas fa-sticky-note" style="font-size:1.6rem;opacity:0.2;display:block;margin-bottom:8px"></i>
+      No notes found.
+    </div>`;
+    return;
+  }
+
+  listEl.innerHTML = list.map(n => {
+    const isLocked = n.locked && !unlockedNoteIds.has(n.id);
+    const activeCls = (n.id === activeNoteId) ? 'active' : '';
+    if (isLocked) {
+      return `
+        <div class="note-card ${activeCls}" onclick="selectNote(${n.id})">
+          <div class="note-card-locked">
+            <div class="eye-circle"><i class="fas fa-eye"></i></div>
+            <div class="note-card-locked-label">Protected Note</div>
+          </div>
+        </div>`;
+    }
+    const snippet = stripHtml(n.content).slice(0, 90) || 'No additional text';
+    return `
+      <div class="note-card ${activeCls}" onclick="selectNote(${n.id})">
+        <div class="note-card-title">${n.locked ? '<i class="fas fa-lock" style="font-size:0.68rem;margin-right:5px;color:#fbbf24"></i>' : ''}${n.title || 'Untitled Note'}</div>
+        <div class="note-card-snippet">${snippet}</div>
+        <div class="note-card-date">${fmtNoteDate(n.updatedAt)}</div>
+      </div>`;
+  }).join('');
+}
+
+function newNote() {
+  const note = { id: Date.now(), title: '', content: '', locked: false, password: null, createdAt: new Date().toISOString(), updatedAt: new Date().toISOString() };
+  notesDb.unshift(note);
+  unlockedNoteIds.add(note.id);
+  scheduleSave();
+  renderNotesList(document.getElementById('notes-search-input')?.value || '');
+  loadNoteIntoEditor(note.id);
+  setTimeout(() => document.getElementById('note-title-input')?.focus(), 50);
+}
+
+function selectNote(id) {
+  const note = notesDb.find(n => n.id === id);
+  if (!note) return;
+  if (note.locked && !unlockedNoteIds.has(id)) {
+    openNotePasswordModal(id, 'unlock');
+    return;
+  }
+  loadNoteIntoEditor(id);
+}
+
+function loadNoteIntoEditor(id) {
+  const note = notesDb.find(n => n.id === id);
+  if (!note) return;
+  activeNoteId = id;
+
+  document.getElementById('notes-empty-state').style.display = 'none';
+  document.getElementById('notes-editor-body').style.display = 'flex';
+  document.getElementById('note-title-input').value = note.title || '';
+  document.getElementById('notes-editor').innerHTML = note.content || '';
+  document.getElementById('note-meta-updated').textContent = note.updatedAt ? `Last edited ${fmtNoteDate(note.updatedAt)}` : '';
+  document.getElementById('notes-save-status').textContent = 'All changes saved';
+
+  updateLockButtonUI(note);
+  renderNotesList(document.getElementById('notes-search-input')?.value || '');
+}
+
+function updateLockButtonUI(note) {
+  const lockBtn = document.getElementById('note-lock-btn');
+  const changeBtn = document.getElementById('note-changepass-btn');
+  const removeBtn = document.getElementById('note-removepass-btn');
+  if (!lockBtn) return;
+  if (note.locked) {
+    lockBtn.innerHTML = '<i class="fas fa-lock"></i>';
+    lockBtn.title = 'Lock note now';
+    lockBtn.style.color = '#fbbf24';
+    changeBtn.style.display = 'flex';
+    removeBtn.style.display = 'flex';
+  } else {
+    lockBtn.innerHTML = '<i class="fas fa-lock-open"></i>';
+    lockBtn.title = 'Protect this note';
+    lockBtn.style.color = '';
+    changeBtn.style.display = 'none';
+    removeBtn.style.display = 'none';
+  }
+}
+
+function markNoteDirty() {
+  document.getElementById('notes-save-status').textContent = 'Unsaved changes…';
+  clearTimeout(noteSaveTimer);
+  noteSaveTimer = setTimeout(() => saveActiveNote(false), 900);
+}
+
+function saveActiveNote(manual) {
+  if (!activeNoteId) return;
+  const note = notesDb.find(n => n.id === activeNoteId);
+  if (!note) return;
+  note.title = document.getElementById('note-title-input').value.trim() || 'Untitled Note';
+  note.content = document.getElementById('notes-editor').innerHTML;
+  note.updatedAt = new Date().toISOString();
+  scheduleSave();
+  document.getElementById('notes-save-status').textContent = 'All changes saved';
+  document.getElementById('note-meta-updated').textContent = `Last edited ${fmtNoteDate(note.updatedAt)}`;
+  renderNotesList(document.getElementById('notes-search-input')?.value || '');
+  if (manual) { /* keep editor open */ }
+}
+
+function deleteActiveNote() {
+  if (!activeNoteId) return;
+  if (!confirm('Delete this note? This cannot be undone.')) return;
+  notesDb = notesDb.filter(n => n.id !== activeNoteId);
+  unlockedNoteIds.delete(activeNoteId);
+  activeNoteId = null;
+  scheduleSave();
+  document.getElementById('notes-editor-body').style.display = 'none';
+  document.getElementById('notes-empty-state').style.display = 'flex';
+  renderNotesList(document.getElementById('notes-search-input')?.value || '');
+}
+
+function formatNote(cmd) {
+  document.getElementById('notes-editor').focus();
+  document.execCommand(cmd, false, null);
+  markNoteDirty();
+}
+
+function formatNoteBlock(tag) {
+  document.getElementById('notes-editor').focus();
+  document.execCommand('formatBlock', false, tag);
+  markNoteDirty();
+}
+
+function handleLockButtonClick() {
+  if (!activeNoteId) return;
+  const note = notesDb.find(n => n.id === activeNoteId);
+  if (!note) return;
+  if (!note.locked) {
+    openNotePasswordModal(activeNoteId, 'set');
+  } else {
+    // Lock the note right now and return to the list
+    saveActiveNote(false);
+    unlockedNoteIds.delete(activeNoteId);
+    activeNoteId = null;
+    document.getElementById('notes-editor-body').style.display = 'none';
+    document.getElementById('notes-empty-state').style.display = 'flex';
+    renderNotesList(document.getElementById('notes-search-input')?.value || '');
+  }
+}
+
+function removeNoteProtection() {
+  if (!activeNoteId) return;
+  if (!confirm('Remove password protection from this note?')) return;
+  const note = notesDb.find(n => n.id === activeNoteId);
+  if (!note) return;
+  note.locked = false;
+  note.password = null;
+  scheduleSave();
+  updateLockButtonUI(note);
+  renderNotesList(document.getElementById('notes-search-input')?.value || '');
+}
+
+function openNotePasswordModal(id, mode) {
+  notePasswordTargetId = id;
+  notePasswordMode = mode;
+
+  document.getElementById('note-pass-input-1').value = '';
+  document.getElementById('note-pass-input-2').value = '';
+  document.getElementById('note-pass-error').style.display = 'none';
+
+  const title = document.getElementById('note-password-modal-title');
+  const subtitle = document.getElementById('note-password-modal-subtitle');
+  const label1 = document.getElementById('note-pass-label-1');
+  const group2 = document.getElementById('note-pass-group-2');
+  const submitBtn = document.getElementById('note-pass-submit-btn');
+
+  if (mode === 'unlock') {
+    title.textContent = 'Enter Password';
+    subtitle.textContent = 'This note is protected. Enter the password to view it.';
+    label1.textContent = 'Password';
+    group2.style.display = 'none';
+    submitBtn.textContent = 'Unlock';
+  } else if (mode === 'set') {
+    title.textContent = 'Protect This Note';
+    subtitle.textContent = 'Set a password to lock this note. You will need it to view or edit the note later.';
+    label1.textContent = 'New Password';
+    group2.style.display = 'block';
+    submitBtn.textContent = 'Protect Note';
+  } else if (mode === 'change') {
+    title.textContent = 'Change Password';
+    subtitle.textContent = 'Set a new password for this note.';
+    label1.textContent = 'New Password';
+    group2.style.display = 'block';
+    submitBtn.textContent = 'Update Password';
+  }
+
+  document.getElementById('note-password-modal').style.display = 'flex';
+  setTimeout(() => document.getElementById('note-pass-input-1').focus(), 50);
+}
+
+function closeNotePasswordModal() {
+  document.getElementById('note-password-modal').style.display = 'none';
+  notePasswordTargetId = null;
+  notePasswordMode = null;
+}
+
+function submitNotePasswordAction() {
+  const note = notesDb.find(n => n.id === notePasswordTargetId);
+  if (!note) { closeNotePasswordModal(); return; }
+  const p1 = document.getElementById('note-pass-input-1').value;
+  const p2 = document.getElementById('note-pass-input-2').value;
+  const errEl = document.getElementById('note-pass-error');
+
+  if (notePasswordMode === 'unlock') {
+    if (note.password === p1) {
+      unlockedNoteIds.add(note.id);
+      closeNotePasswordModal();
+      loadNoteIntoEditor(note.id);
+    } else {
+      errEl.textContent = '❌ Incorrect password.';
+      errEl.style.display = 'block';
+    }
+  } else if (notePasswordMode === 'change') {
+    if (!p1) { errEl.textContent = '❌ Please enter a password.'; errEl.style.display = 'block'; return; }
+    if (p1 !== p2) { errEl.textContent = '❌ Passwords do not match.'; errEl.style.display = 'block'; return; }
+    note.locked = true;
+    note.password = p1;
+    unlockedNoteIds.add(note.id);
+    scheduleSave();
+    closeNotePasswordModal();
+    loadNoteIntoEditor(note.id);
+  } else { // 'set' — lock it immediately, don't leave it open
+    if (!p1) { errEl.textContent = '❌ Please enter a password.'; errEl.style.display = 'block'; return; }
+    if (p1 !== p2) { errEl.textContent = '❌ Passwords do not match.'; errEl.style.display = 'block'; return; }
+    saveActiveNote(false);
+    note.locked = true;
+    note.password = p1;
+    unlockedNoteIds.delete(note.id);
+    scheduleSave();
+    closeNotePasswordModal();
+    activeNoteId = null;
+    document.getElementById('notes-editor-body').style.display = 'none';
+    document.getElementById('notes-empty-state').style.display = 'flex';
+    renderNotesList(document.getElementById('notes-search-input')?.value || '');
+  }
+}
+
 // ── DASHBOARD CREDIT CHARTS ─────────────────────────────────────────────────
 function renderDashCreditCharts() {
   const activeCredit = creditDb.filter(c => c.status === 'Active');
@@ -11720,6 +12938,7 @@ function setNumberSystem(system, el) {
 
 function openSettingsModal() {
   document.getElementById('settings-modal').style.display = 'flex';
+  if (typeof renderSecurityQuestionStatus === 'function') renderSecurityQuestionStatus();
 }
 
 function closeSettingsModal() {
@@ -12925,11 +14144,22 @@ function openBackupModal() {
   document.getElementById('backup-modal').style.display = 'flex';
 }
 
+function getAllSettingsToggles() {
+  const out = {};
+  for (let i = 0; i < localStorage.length; i++) {
+    const k = localStorage.key(i);
+    if (k && k.startsWith('fos_set_')) out[k] = localStorage.getItem(k);
+  }
+  return out;
+}
+
 function downloadBackup() {
   const payload = {
     version: 3,
     exportedAt: new Date().toISOString(),
     db, portDb, creditDb, budgets,
+    insuranceDb,
+    notesDb,
     ccCards,
     notifications,
     gameStats,
@@ -12945,7 +14175,12 @@ function downloadBackup() {
     customTags: JSON.parse(localStorage.getItem('fos_custom_tags') || '[]'),
     roughBoard: JSON.parse(localStorage.getItem('financeOS_roughboard_v1') || 'null'),
     users: JSON.parse(localStorage.getItem('fos_users') || '[]'),
-    currentUser: JSON.parse(localStorage.getItem('fos_current_user') || 'null')
+    currentUser: JSON.parse(localStorage.getItem('fos_current_user') || 'null'),
+    settingsToggles: getAllSettingsToggles(),
+    onboardingGoal: localStorage.getItem('fos_onboarding_goal') || '',
+    lastActiveView: JSON.parse(localStorage.getItem('fos_last_active_view') || 'null'),
+    lastNetWorthMilestone: localStorage.getItem('fos_last_nw_milestone') || '',
+    lastPortfolioUpdate: localStorage.getItem('fos_last_portfolio_update') || ''
   };
 
   const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
@@ -12986,6 +14221,8 @@ function readRestoreFile(file) {
           ${(data.db||[]).length} transactions · 
           ${(data.portDb||[]).length} holdings · 
           ${(data.creditDb||[]).length} credit entries · 
+          ${(data.insuranceDb||[]).length} insurance policies · 
+          ${(data.notesDb||[]).length} notes · 
           ${(data.ccCards||[]).length} CC cards · 
           v${data.version||1} · 
           Exported ${data.exportedAt ? new Date(data.exportedAt).toLocaleDateString() : 'unknown date'}
@@ -13006,6 +14243,8 @@ function confirmRestore() {
   if (pendingRestoreData.db)       { db       = pendingRestoreData.db; localStorage.setItem('fos_db_v3', JSON.stringify(db)); }
   if (pendingRestoreData.portDb)   { portDb   = pendingRestoreData.portDb.map(normalizePortRecord); localStorage.setItem('fos_port_v3', JSON.stringify(portDb)); }
   if (pendingRestoreData.creditDb) { creditDb = pendingRestoreData.creditDb; localStorage.setItem('fos_credit_v1', JSON.stringify(creditDb)); }
+  if (pendingRestoreData.insuranceDb) { insuranceDb = pendingRestoreData.insuranceDb; localStorage.setItem('fos_insurance_v1', JSON.stringify(insuranceDb)); }
+  if (pendingRestoreData.notesDb) { notesDb = pendingRestoreData.notesDb; localStorage.setItem('fos_notes_v1', JSON.stringify(notesDb)); }
   if (pendingRestoreData.budgets)  { budgets  = pendingRestoreData.budgets; localStorage.setItem('fos_budgets', JSON.stringify(budgets)); }
 
   // CC Utilization cards
@@ -13075,6 +14314,27 @@ function confirmRestore() {
   }
   if (pendingRestoreData.currentUser) {
     localStorage.setItem('fos_current_user', JSON.stringify(pendingRestoreData.currentUser));
+  }
+
+  // Settings panel toggles (theme, sidebar animation, remember page, notification sound, large txn limit, daily summary time, etc.)
+  if (pendingRestoreData.settingsToggles) {
+    Object.keys(pendingRestoreData.settingsToggles).forEach(key => {
+      localStorage.setItem(key, pendingRestoreData.settingsToggles[key]);
+    });
+  }
+
+  // Onboarding goal & milestone/celebration trackers
+  if (pendingRestoreData.onboardingGoal) {
+    localStorage.setItem('fos_onboarding_goal', pendingRestoreData.onboardingGoal);
+  }
+  if (pendingRestoreData.lastActiveView) {
+    localStorage.setItem('fos_last_active_view', JSON.stringify(pendingRestoreData.lastActiveView));
+  }
+  if (pendingRestoreData.lastNetWorthMilestone) {
+    localStorage.setItem('fos_last_nw_milestone', pendingRestoreData.lastNetWorthMilestone);
+  }
+  if (pendingRestoreData.lastPortfolioUpdate) {
+    localStorage.setItem('fos_last_portfolio_update', pendingRestoreData.lastPortfolioUpdate);
   }
 
   pendingRestoreData = null;
@@ -13408,14 +14668,64 @@ function updateScenarioReturns() {
   calcScenario();
 }
 
+function toggleScenarioStepup() {
+  const enabled = document.getElementById('sc-stepup-enabled').checked;
+  document.getElementById('sc-stepup-row').style.display = enabled ? 'flex' : 'none';
+  calcScenario();
+}
+
+// Builds month-by-month invested/total arrays for the whole tenure.
+// When stepUp is disabled this produces results identical to the original flat-SIP formula.
+function buildScenarioMonthlySeries(monthly, annualRatePct, totalMonths, stepUpEnabled, stepUpPct, stepUpFreq) {
+  const r = annualRatePct / 100 / 12;
+  const invSeries = [];   // cumulative invested, indexed by month (1-based via array index = month-1)
+  const totSeries = [];   // cumulative value, same indexing
+
+  if (!stepUpEnabled) {
+    // Original flat-SIP closed-form path, computed per-month for table/chart granularity
+    let invested = 0, total = 0;
+    for (let m = 1; m <= totalMonths; m++) {
+      invested = monthly * m;
+      total = r > 0 ? monthly * ((Math.pow(1 + r, m) - 1) / r) * (1 + r) : invested;
+      invSeries.push(invested);
+      totSeries.push(total);
+    }
+    return { invSeries, totSeries };
+  }
+
+  // Step-up SIP: contribution increases by stepUpPct% at each step interval.
+  const stepEveryMonths = stepUpFreq === 'monthly' ? 1 : (stepUpFreq === 'quarterly' ? 3 : 12);
+  let currentContribution = monthly;
+  let cumInvested = 0;
+  let cumValue = 0;
+
+  for (let m = 1; m <= totalMonths; m++) {
+    // Step up the contribution at the start of every interval after the first
+    if (m > 1 && (m - 1) % stepEveryMonths === 0) {
+      currentContribution = currentContribution * (1 + stepUpPct / 100);
+    }
+    cumValue = cumValue * (1 + r) + currentContribution;
+    cumInvested += currentContribution;
+    invSeries.push(cumInvested);
+    totSeries.push(cumValue);
+  }
+  return { invSeries, totSeries };
+}
+
 function calcScenario() {
   const monthly = parseFloat(document.getElementById('sc-monthly').value) || 0;
   const rate    = parseFloat(document.getElementById('sc-returns').value) || 0;
   const years   = parseFloat(document.getElementById('sc-years').value) || 0;
-  const months  = years * 12;
-  const r       = rate / 100 / 12;
-  const invested = monthly * months;
-  const total    = r > 0 ? monthly * ((Math.pow(1 + r, months) - 1) / r) * (1 + r) : invested;
+  const months  = Math.max(1, Math.round(years * 12));
+
+  const stepUpEnabled = document.getElementById('sc-stepup-enabled') ? document.getElementById('sc-stepup-enabled').checked : false;
+  const stepUpPct  = stepUpEnabled ? (parseFloat(document.getElementById('sc-stepup-pct').value) || 0) : 0;
+  const stepUpFreq = stepUpEnabled ? (document.getElementById('sc-stepup-freq').value || 'yearly') : 'yearly';
+
+  const { invSeries, totSeries } = buildScenarioMonthlySeries(monthly, rate, months, stepUpEnabled, stepUpPct, stepUpFreq);
+
+  const invested = invSeries[invSeries.length - 1] || 0;
+  const total    = totSeries[totSeries.length - 1] || 0;
   const gains    = total - invested;
 
   document.getElementById('sc-invested').textContent = fmt(invested);
@@ -13428,10 +14738,11 @@ function calcScenario() {
   if (!tbody) return;
   tbody.innerHTML = '';
 
-  for (let y = 1; y <= Math.max(1, Math.round(years)); y++) {
-    const m = y * 12;
-    const inv = monthly * m;
-    const tot = r > 0 ? monthly * ((Math.pow(1 + r, m) - 1) / r) * (1 + r) : inv;
+  const totalYears = Math.max(1, Math.round(years));
+  for (let y = 1; y <= totalYears; y++) {
+    const m = Math.min(y * 12, months);
+    const inv = invSeries[m - 1] || 0;
+    const tot = totSeries[m - 1] || 0;
     const gain = tot - inv;
     const growthPct = inv > 0 ? ((gain / inv) * 100).toFixed(1) : '0.0';
     yearLabels.push('Year ' + y);
@@ -14320,9 +15631,9 @@ function renderCCCards() {
           <div class="cc-card-name">${c.nickname}</div>
           <div class="cc-card-number" style="display:flex;align-items:center;gap:8px">
             <span>${maskedNum} &nbsp;·&nbsp; Exp ${c.expiry}</span>
-            ${c.network === 'visa' ? `<img src="https://logo.clearbit.com/visa.com" style="height:12px;filter:brightness(0) invert(0.6)" onerror="this.outerHTML='<span style=font-size:0.6rem;font-weight:800;color:#1a1f71;background:#e8e8e8;padding:1px 5px;border-radius:3px;font-style:italic>VISA</span>'">` : ''}
-            ${c.network === 'mastercard' ? `<img src="https://logo.clearbit.com/mastercard.com" style="height:14px" onerror="this.outerHTML='<span style=font-size:0.6rem;font-weight:800;color:#eb001b;padding:1px 4px;border-radius:3px>MC</span>'">` : ''}
-            ${c.network === 'rupay' ? `<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/RuPay-Logo.png/200px-RuPay-Logo.png" style="height:11px;filter:brightness(0) invert(0.6)" onerror="this.outerHTML='<span style=font-size:0.6rem;font-weight:800;color:#138808;background:#e8e8e8;padding:1px 5px;border-radius:3px>RuPay</span>'">` : ''}
+            ${c.network === 'visa' ? `<svg width="34" height="14" viewBox="0 0 48 16" xmlns="http://www.w3.org/2000/svg"><text x="0" y="13" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="900" font-style="italic" letter-spacing="-0.5" fill="#aeb4c2">VISA</text></svg>` : ''}
+            ${c.network === 'mastercard' ? `<svg width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg"><circle cx="9.5" cy="8" r="7.2" fill="#EB001B"/><circle cx="16.5" cy="8" r="7.2" fill="#F79E1B"/><path d="M13 2.4a7.18 7.18 0 0 1 0 11.2 7.18 7.18 0 0 1 0-11.2z" fill="#FF5F00"/></svg>` : ''}
+            ${c.network === 'rupay' ? `<svg width="40" height="14" viewBox="0 0 58 16" xmlns="http://www.w3.org/2000/svg"><text x="0" y="12" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="800" letter-spacing="-0.3" fill="#0a8a3e">Ru<tspan fill="#f47b20">Pay</tspan></text></svg>` : ''}
           </div>
         </div>
         <div class="cc-card-actions">
