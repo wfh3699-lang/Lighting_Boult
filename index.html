@@ -1944,6 +1944,22 @@ body.light-mode .settings-undo-btn:hover { color: white; }
   font-size: 0.88rem; font-family: 'DM Sans', sans-serif;
   outline: none; margin-bottom: 1rem; transition: border-color 0.16s;
 }
+
+/* Dark-theme the native <option> popup list for every <select> in the app.
+   Chrome, Edge and Firefox all honor background-color/color on <option>,
+   so this keeps the dropdown list consistent with the dark UI instead of
+   falling back to the OS-default white popup. */
+select { color-scheme: dark; }
+select option {
+  background-color: #11142b;
+  color: #ffffff;
+}
+body.light-mode select { color-scheme: light; }
+body.light-mode select option {
+  background-color: #ffffff;
+  color: #0f172a;
+}
+
 .login-pass-wrap { position: relative; margin-bottom: 1rem; }
 .login-pass-wrap .login-input { margin-bottom: 0; padding-right: 42px; width: 100%; }
 .login-pass-toggle {
