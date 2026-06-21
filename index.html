@@ -6410,13 +6410,14 @@ function renderDashboardImmediate() {
           </div>
         </div>
         <div style="height:14px;border-radius:99px;background:${trackBg};overflow:hidden;position:relative;border:1px solid ${hex}22">
-          <div style="height:100%;width:${pctOfMax}%;border-radius:99px;background:linear-gradient(90deg, ${hex}aa, ${hex});box-shadow:0 0 14px ${hex}80, inset 0 1px 0 rgba(255,255,255,0.3);transition:width 0.8s cubic-bezier(0.16,1,0.3,1);position:relative">
+          <div data-bar-fill data-target-width="${pctOfMax}" style="height:100%;width:${pctOfMax}%;border-radius:99px;background:linear-gradient(90deg, ${hex}aa, ${hex});box-shadow:0 0 14px ${hex}80, inset 0 1px 0 rgba(255,255,255,0.3);transition:width 0.8s cubic-bezier(0.16,1,0.3,1);position:relative">
             <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(255,255,255,0.25), transparent 60%);border-radius:99px"></div>
           </div>
         </div>
       </div>
     `;
   }).join('');
+  animateLiquidBars(dashWrap);
 
 
 /// 2. Spending Mix - Premium Ranked Flow Bars
@@ -6460,7 +6461,7 @@ function renderDashboardImmediate() {
             <span style="font-size:0.74rem;font-weight:600;color:${chartTextColor()};white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${cat}</span>
           </div>
           <div style="flex:1;height:11px;border-radius:99px;background:${trackBg};overflow:hidden;position:relative">
-            <div style="height:100%;width:${pctOfMax}%;border-radius:99px;background:linear-gradient(90deg, ${hex}99, ${hex});box-shadow:0 0 10px ${hex}66;position:relative">
+            <div data-bar-fill data-target-width="${pctOfMax}" style="height:100%;width:${pctOfMax}%;border-radius:99px;background:linear-gradient(90deg, ${hex}99, ${hex});box-shadow:0 0 10px ${hex}66;transition:width 0.8s cubic-bezier(0.16,1,0.3,1);position:relative">
               <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(255,255,255,0.25), transparent 60%);border-radius:99px"></div>
             </div>
           </div>
@@ -6473,6 +6474,7 @@ function renderDashboardImmediate() {
         </div>
       `;
     }).join('');
+    animateLiquidBars(mixWrap);
   }
 
  // Portfolio by asset type - Center-Stat Ring + Progress Legend
@@ -6525,7 +6527,7 @@ function renderDashboardImmediate() {
                 <span style="font-family:'DM Mono',monospace;font-size:0.74rem;font-weight:700;color:${hex};flex-shrink:0">${pct.toFixed(0)}%</span>
               </div>
               <div style="height:4px;border-radius:99px;background:rgba(255,255,255,0.06);overflow:hidden">
-                <div style="height:100%;width:${pct}%;border-radius:99px;background:${hex};box-shadow:0 0 6px ${hex}80"></div>
+                <div data-bar-fill data-target-width="${pct}" style="height:100%;width:${pct}%;border-radius:99px;background:${hex};box-shadow:0 0 6px ${hex}80;transition:width 0.8s cubic-bezier(0.16,1,0.3,1)"></div>
               </div>
             </div>
           `;
@@ -6563,6 +6565,7 @@ function renderDashboardImmediate() {
         }
       }
     });
+    animateLiquidBars(portDonutWrap);
   }
 
 
@@ -11074,6 +11077,32 @@ function destroyChart(key) {
 function chartTextColor() { return document.body.classList.contains('light-mode') ? '#0f172a' : '#e2e8f0'; }
 function chartGridColor() { return document.body.classList.contains('light-mode') ? 'rgba(0,0,0,0.06)' : 'rgba(255,255,255,0.04)'; }
 function donutBorderColor() { return document.body.classList.contains('light-mode') ? 'rgba(255,255,255,0.9)' : 'rgba(7,9,26,0.9)'; }
+
+// ── Liquid-pill bar fill-in animation ───────────────────────────────────────
+// The custom HTML/CSS "liquid bar" widgets (Cash Flow, Spending Mix, Top 3
+// Holdings, Credit Outstanding, Portfolio legend bars, etc.) render their
+// final width directly via innerHTML, so the CSS `transition:width` never
+// actually fires on first paint (a transition only animates on a property
+// *change*, not on initial layout). This helper finds every bar marked with
+// data-bar-fill inside a container, snaps them to 0% width, then on the next
+// animation frame restores each to its real target width — giving the
+// existing transition something to animate from.
+function animateLiquidBars(containerEl) {
+  if (!containerEl) return;
+  const bars = containerEl.querySelectorAll('[data-bar-fill]');
+  if (!bars.length) return;
+  bars.forEach(bar => {
+    bar.style.width = '0%';
+  });
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      bars.forEach(bar => {
+        const target = bar.getAttribute('data-target-width');
+        if (target !== null) bar.style.width = target + '%';
+      });
+    });
+  });
+}
 
 // ── 3D gradient bar background helper ─────────────────────────────────────
 function make3DBarColor(ctx, hex, alpha1, alpha2) {
